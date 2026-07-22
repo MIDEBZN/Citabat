@@ -11,6 +11,13 @@ const mainLocations = [
     coverage: ['Centre-ville', 'Quartier Léopold', 'Gare de Namur', 'Citadelle']
   },
   {
+    name: 'Bouge',
+    postalCode: '5004',
+    delay: '15 - 20 minutes',
+    desc: 'Déplacement ultra-rapide à Bouge (siège Rue de Balart 87) et à proximité de l\'Hôpital CHR de Namur et des zones résidentielles.',
+    coverage: ['Rue de Balart', 'Sainte-Rita', 'Chaussée de Louvain', 'Sart-Hulet', 'Cité du CHR']
+  },
+  {
     name: 'Jambes',
     postalCode: '5000',
     delay: '20 minutes',
@@ -23,13 +30,6 @@ const mainLocations = [
     delay: '20 - 25 minutes',
     desc: 'Couverture complète d\'Erpent pour chaufferie, dépannage chaudière et plomberie sanitaire de villas et résidences.',
     coverage: ['Erpent-Val', 'Chaussée de Marche', 'Quartier Collège', 'Plateau d\'Erpent']
-  },
-  {
-    name: 'Bouge',
-    postalCode: '5004',
-    delay: '20 minutes',
-    desc: 'Déplacement rapide à Bouge, y compris à proximité de l\'Hôpital CHR de Namur et des zones résidentielles.',
-    coverage: ['Sainte-Rita', 'Chaussée de Louvain', 'Sart-Hulet', 'Cité du CHR']
   },
   {
     name: 'Salzinnes',
@@ -56,7 +56,7 @@ const mainLocations = [
     name: 'Beez',
     postalCode: '5000',
     delay: '25 minutes',
-    desc: 'Dépannage d\'urgence le long du réseau fluvial et sur les hauteurs de Beez. Réponse immédiate au 081 39 48 20.',
+    desc: 'Dépannage d\'urgence le long du réseau fluvial et sur les hauteurs de Beez. Réponse immédiate au 0480 14 75 76.',
     coverage: ['Château de Beez', 'Moulins', 'Quartier de la Meuse']
   }
 ];
@@ -73,7 +73,7 @@ const outerLocations = [
 
 <Layout
   title="Zones d'Intervention Plomberie Namur - Citabat"
-  description="Plombier d'urgence à Namur, Jambes, Erpent, Bouge, Salzinnes, Saint-Servais et toute la province. Intervention garantie sous 30 minutes 24h/24 & 7j/7."
+  description="Plombier d'urgence à Namur, Bouge, Jambes, Erpent, Salzinnes, Saint-Servais et toute la province. Intervention garantie sous 30 minutes 24h/24 & 7j/7."
 >
   <!-- Hero Section -->
   <section class="locations-hero">
@@ -81,7 +81,7 @@ const outerLocations = [
       <span class="badge badge-cyan">Secteur Namur & Province</span>
       <h1>Zones d'Intervention Plomberie à Namur</h1>
       <p class="hero-desc">
-        Grâce à nos véhicules d'intervention équipés et géolocalisés, nous arrivons chez vous en <strong>moins de 30 minutes</strong> à Namur et ses sous-communes.
+        Grâce à nos véhicules d'intervention équipés et géolocalisés basés Rue de Balart 87 à Namur (Bouge), nous arrivons chez vous en <strong>moins de 30 minutes</strong>.
       </p>
     </div>
   </section>
@@ -93,8 +93,8 @@ const outerLocations = [
         <span class="badge badge-orange">📍 Zone Prioritaire 30 Min</span>
         <h2>Une présence locale forte à Namur</h2>
         <p>
-          Contrairement aux centrales de mise en relation nationales, <strong>Citabat est une entreprise ancrée à Namur</strong>. 
-          Nos plombiers connaissent parfaitement le réseau d'eau local, le niveau de calcaire des nappes namuroises et les spécificités des bâtiments anciens comme modernes.
+          Contrairement aux centrales de mise en relation nationales, <strong>Citabat (TVA BE0783224718) est une entreprise ancrée à Namur</strong> (Rue de Balart 87, 5004 Namur). 
+          Nos plombiers connaissent parfaitement le réseau d'eau local et interviennent immédiatement.
         </p>
 
         <div class="guarantee-box">
@@ -102,7 +102,7 @@ const outerLocations = [
             <span class="g-icon">⚡</span>
             <div>
               <strong>Service Garde 24/7</strong>
-              <p>Permanence assurée jour, nuit, week-end & jours fériés</p>
+              <p>Permanence assurée jour, nuit, week-end & jours fériés au 0480 14 75 76</p>
             </div>
           </div>
           <div class="g-item">
@@ -123,7 +123,7 @@ const outerLocations = [
         <div class="map-visual">
           <div class="map-pin pin-namur">
             <span class="pin-pulse"></span>
-            <span class="pin-label">Namur (15 min)</span>
+            <span class="pin-label">Bouge / Namur (15 min)</span>
           </div>
           <div class="map-pin pin-jambes">
             <span class="pin-label">Jambes (20 min)</span>
@@ -155,7 +155,7 @@ const outerLocations = [
                 <h3>{loc.name}</h3>
                 <span class="cp-badge">{loc.postalCode}</span>
               </div>
-              <span class="delay-badge">⏱️ Arrival: {loc.delay}</span>
+              <span class="delay-badge">⏱️ Arrivée: {loc.delay}</span>
             </div>
 
             <p class="loc-desc">{loc.desc}</p>
@@ -168,8 +168,8 @@ const outerLocations = [
             </div>
 
             <div class="loc-action">
-              <a href="tel:081394820" class="btn btn-outline btn-sm">
-                Plombier à {loc.name}: 081 39 48 20
+              <a href="tel:0480147576" class="btn btn-outline btn-sm">
+                Plombier à {loc.name}: 0480 14 75 76
               </a>
             </div>
           </div>
@@ -183,7 +183,7 @@ const outerLocations = [
     <div class="container">
       <div class="section-title-wrapper">
         <span class="badge badge-orange">Grand Namur</span>
-        <h2>Communes Périphériques Desserivies</h2>
+        <h2>Communes Périphériques Desservies</h2>
         <p>Nous intervenons également rapidement dans l'ensemble des communes avoisinantes.</p>
       </div>
 
@@ -195,7 +195,7 @@ const outerLocations = [
               <span class="outer-delay">{out.delay}</span>
             </div>
             <p>Services de dépannage plomberie, fuites et installation de chauffage.</p>
-            <a href="tel:081394820" class="outer-call">
+            <a href="tel:0480147576" class="outer-call">
               📞 Appeler pour {out.name}
             </a>
           </div>
