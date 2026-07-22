@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+}
+
+const {
+  title = "Citabat Plomberie Namur - Plombier Chauffagiste & Dépannage 24/7",
+  description = "Citabat, entreprise de plomberie et chauffage à Namur. Dépannage urgence 24h/24 & 7j/7, fuite d'eau, débouchage canalisation, chauffage et rénovation salle de bain.",
+  keywords = "plombier namur, plomberie citabat, dépannage fuite d'eau namur, débouchage canalisation jambes, chauffagiste namur, intervention urgence plomberie",
+  image = "/og-image.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://citabat-plomberie.vercel.app');
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Plumber",
+  "name": "Citabat Plomberie Namur",
+  "url": "https://citabat-plomberie.vercel.app",
+  "logo": "https://citabat-plomberie.vercel.app/logo.png",
+  "image": "https://citabat-plomberie.vercel.app/hero-plumbing.jpg",
+  "description": "Service professionnel de plomberie et chauffage à Namur et ses environs. Intervention d'urgence en 30 minutes 24h/7d.",
+  "telephone": "+3281394820",
+  "email": "contact@citabat.be",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rue de Fer 45",
+    "addressLocality": "Namur",
+    "postalCode": "5000",
+    "addressCountry": "BE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4674,
+    "longitude": 4.8718
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Namur" },
+    { "@type": "City", "name": "Jambes" },
+    { "@type": "City", "name": "Erpent" },
+    { "@type": "City", "name": "Bouge" },
+    { "@type": "City", "name": "Salzinnes" },
+    { "@type": "City", "name": "Saint-Servais" },
+    { "@type": "City", "name": "Flawinne" },
+    { "@type": "City", "name": "Beez" },
+    { "@type": "City", "name": "Gembloux" },
+    { "@type": "City", "name": "Andenne" }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Citabat Plomberie" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="fr_BE" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

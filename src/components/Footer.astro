@@ -1,0 +1,272 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <a href="/" class="brand-logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">CITABAT</span>
+          <span class="brand-sub">Plomberie Namur</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Votre plombier-chauffagiste de confiance à Namur. Dépannage rapide 24h/24 & 7j/7, fuites, débouchages, rénovation de salle de bain et installation de chauffage.
+      </p>
+      <div class="footer-emergency-box">
+        <span class="box-title">🚨 Urgence Plomberie 24/7</span>
+        <a href="tel:081394820" class="phone-link">081 39 48 20</a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Nos Services</h4>
+      <ul>
+        <li><a href="/services#depannage">Dépannage d'urgence 24/7</a></li>
+        <li><a href="/services#debouchage">Débouchage canalisations</a></li>
+        <li><a href="/services#fuites">Recherche & réparation de fuite</a></li>
+        <li><a href="/services#chauffage">Entretien & installation chauffage</a></li>
+        <li><a href="/services#salle-de-bain">Rénovation salle de bain</a></li>
+        <li><a href="/services#sanitaire">Remplacement sanitaires</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Zones d'Intervention</h4>
+      <ul>
+        <li><a href="/locations">Namur Centre (5000)</a></li>
+        <li><a href="/locations">Jambes (5000)</a></li>
+        <li><a href="/locations">Erpent & Bouge</a></li>
+        <li><a href="/locations">Salzinnes & Saint-Servais</a></li>
+        <li><a href="/locations">Flawinne & Beez</a></li>
+        <li><a href="/locations">Gembloux & Andenne</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact & Horaires</h4>
+      <ul class="contact-list">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Rue de Fer 45, 5000 Namur, Belgique</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:081394820">081 39 48 20</a>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <a href="mailto:contact@citabat.be">contact@citabat.be</a>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Dépannage d'urgence 24/7<br/>Bureaux: Lun-Sam 07:30 - 19:00</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container bottom-content">
+      <p>&copy; {currentYear} Citabat Plomberie Namur. Tous droits réservés.</p>
+      <div class="bottom-links">
+        <a href="/about">À Propos</a>
+        <a href="/contact">Mentions Légales</a>
+        <a href="/contact">Politique de Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #050a14;
+    border-top: 1px solid var(--border-light);
+    margin-top: auto;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    padding: 4rem 1.5rem 3rem 1.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--cyan) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .brand-sub {
+    font-size: 0.7rem;
+    color: var(--cyan);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .footer-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .footer-emergency-box {
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .box-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+  }
+
+  .phone-link {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .phone-link:hover {
+    color: var(--cyan);
+  }
+
+  .footer-column h4 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--cyan);
+  }
+
+  .footer-column ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer-column a {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  .footer-column a:hover {
+    color: var(--cyan);
+    padding-left: 4px;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .contact-list svg {
+    color: var(--cyan);
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .footer-bottom {
+    background: #02050b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.2rem 0;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .bottom-links a {
+    color: var(--text-dim);
+  }
+
+  .bottom-links a:hover {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 992px) {
+    .footer-content {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .bottom-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,362 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EmergencyBanner from '../components/EmergencyBanner.astro';
+
+const values = [
+  {
+    icon: '🤝',
+    title: 'Transparence & Honnêteté',
+    desc: 'Pas de mauvaise surprise : un devis clair et détaillé est systématiquement présenté et signé avant le moindre coup de clé.'
+  },
+  {
+    icon: '⚡',
+    title: 'Réactivité d\'Urgence',
+    desc: 'Grâce à notre implantation locale au cœur de Namur, nos plombiers sont chez vous en moins de 30 minutes 24h/24.'
+  },
+  {
+    icon: '🧹',
+    title: 'Chantiers Impeccables',
+    desc: 'Nous protégeons vos sols et vos installations. Chaque intervention s\'achève par un nettoyage complet de la zone de travail.'
+  },
+  {
+    icon: '📜',
+    title: 'Agréments & Conformité',
+    desc: 'Entreprise enregistrée et certifiée pour le gaz, le chauffage et la recherche de fuites d\'eau agréée assurances.'
+  }
+];
+
+const equipment = [
+  {
+    name: 'Caméras Thermographiques FLIR',
+    desc: 'Détection infrarouge de haute précision pour repérer les fuites de conduites d\'eau chaude encastrées.'
+  },
+  {
+    name: 'Endoscopes HD & Inspection Caméra',
+    desc: 'Exploration vidéo complète des conduits d\'évacuation jusqu\'à 30 mètres pour localiser les bouchons et fissures.'
+  },
+  {
+    name: 'Camions d\'Hydrocurage Haute Pression',
+    desc: 'Nettoyage des réseaux d\'égouttage avec une pression ajustée jusqu\'à 200 bars pour dissoudre les résidus résistants.'
+  },
+  {
+    name: 'Corrélateurs Acoustiques d\'Écoute',
+    desc: 'Mesure de la fréquence sonore des fuites sous dalle de béton ou sous jardin sans destruction.'
+  }
+];
+---
+
+<Layout
+  title="À Propos de Citabat - Entreprise de Plomberie & Chauffage à Namur"
+  description="Découvrez Citabat, votre entreprise de plomberie locale à Namur. 15 ans d'expérience, techniciens agréés, matériel de pointe et engagement de transparence."
+>
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container text-center">
+      <span class="badge badge-cyan">Notre Histoire & Valeurs</span>
+      <h1>À Propos de Citabat Plomberie</h1>
+      <p class="hero-desc">
+        Depuis plus de 15 ans, Citabat met son expertise artisanale au service des habitants et professionnels de Namur pour des travaux de plomberie et chauffage irréprochables.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story & Vision -->
+  <section class="section-padding story-section">
+    <div class="container grid-2">
+      <div class="story-content">
+        <span class="badge badge-orange">L'Ancrage Namurois</span>
+        <h2>Une entreprise de proximité bâtie sur la confiance</h2>
+        <p class="lead-p">
+          Fondée à Namur avec la conviction que la plomberie d'urgence devait être synonyme de réactivité, de bienveillance et de tarification juste, <strong>Citabat</strong> est aujourd'hui une référence incontournable dans la région.
+        </p>
+        <p>
+          Que ce soit pour colmater une fuite d'eau en pleine nuit à Salzinnes, déboucher un réseau d'égouts à Jambes ou rénover entièrement la salle de bain d'une maison de maître à Erpent, nos plombiers diplômés interviennent avec le même niveau d'exigence et de professionnalisme.
+        </p>
+        <p>
+          Nous combinons le savoir-faire de l'artisanat traditionnel avec les technologies de diagnostic modernes (caméras thermiques, inspection vidéo, détection acoustique) pour garantir des résultats durables.
+        </p>
+
+        <div class="about-stats-inline">
+          <div class="stat-item">
+            <span class="stat-val">15+</span>
+            <span class="stat-txt">Années d'expérience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">3 500+</span>
+            <span class="stat-txt">Chantiers réussis</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">100%</span>
+            <span class="stat-txt">Agrément Assurances</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-image-box">
+        <div class="image-wrapper">
+          <div class="about-visual-card">
+            <span class="visual-badge">🏆 Plombier Agréé Namur</span>
+            <div class="card-inner-graphic">
+              <span class="big-symbol">🔧</span>
+              <h3>Citabat Plomberie & Chauffage</h3>
+              <p>Qualité certifiée & Matériel garanti</p>
+              <div class="badge-list-mini">
+                <span>✓ Agréé Gaz Wallonie</span>
+                <span>✓ Agréé Mazout</span>
+                <span>✓ Assurance Décennale</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="section-padding values-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-cyan">Nos Engagements</span>
+        <h2>Ce qui fait la différence Citabat</h2>
+        <p>4 piliers fondamentaux guidant chacune de nos interventions au quotidien.</p>
+      </div>
+
+      <div class="grid-2">
+        {values.map((v) => (
+          <div class="card value-card">
+            <span class="v-icon">{v.icon}</span>
+            <div>
+              <h3>{v.title}</h3>
+              <p>{v.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- High-Tech Equipment Showcase -->
+  <section class="section-padding equipment-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-orange">Équipement de Pointe</span>
+        <h2>Notre Matériel de Diagnostic & Réparation</h2>
+        <p>Pour intervenir rapidement et éviter les démolitions inutiles, nous investissons dans les meilleurs outils du marché.</p>
+      </div>
+
+      <div class="grid-2">
+        {equipment.map((eq) => (
+          <div class="card eq-card">
+            <div class="eq-header">
+              <span class="eq-bullet">⚡</span>
+              <h4>{eq.name}</h4>
+            </div>
+            <p>{eq.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <EmergencyBanner />
+</Layout>
+
+<style>
+  .about-hero {
+    padding: 5rem 0 3rem 0;
+    background: radial-gradient(circle at 50% 0%, #0d2342 0%, var(--bg-dark) 80%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .text-center {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .about-hero h1 {
+    font-size: 2.8rem;
+    margin: 1rem 0;
+  }
+
+  .hero-desc {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .story-content h2 {
+    font-size: 2.2rem;
+    margin: 0.8rem 0 1.2rem 0;
+  }
+
+  .lead-p {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .story-content p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .about-stats-inline {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .stat-val {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--cyan);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-txt {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* About Visual Card */
+  .story-image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-visual-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    position: relative;
+    width: 100%;
+  }
+
+  .visual-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-full);
+  }
+
+  .big-symbol {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .card-inner-graphic h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-inner-graphic p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-list-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .badge-list-mini span {
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--cyan);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    width: 80%;
+  }
+
+  /* Values Section */
+  .values-section {
+    background: rgba(15, 28, 48, 0.4);
+    border-y: 1px solid var(--border-light);
+  }
+
+  .value-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .v-icon {
+    font-size: 2.2rem;
+    background: rgba(0, 210, 255, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .value-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .value-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Equipment */
+  .eq-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .eq-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .eq-header h4 {
+    font-size: 1.15rem;
+  }
+
+  .eq-bullet {
+    color: var(--accent-orange);
+  }
+
+  .eq-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 992px) {
+    .story-section .grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

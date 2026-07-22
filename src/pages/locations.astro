@@ -1,0 +1,481 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EmergencyBanner from '../components/EmergencyBanner.astro';
+
+const mainLocations = [
+  {
+    name: 'Namur Centre',
+    postalCode: '5000',
+    delay: '15 - 20 minutes',
+    desc: 'Intervention prioritaire dans le centre historique de Namur, près de la Corbeille, de la gare et des axes commerçants. Plombier d\'urgence sur place immédiatement.',
+    coverage: ['Centre-ville', 'Quartier Léopold', 'Gare de Namur', 'Citadelle']
+  },
+  {
+    name: 'Jambes',
+    postalCode: '5000',
+    delay: '20 minutes',
+    desc: 'Service dépannage 24/7 de l\'autre côté de la Meuse à Jambes. Réparation de fuites et débouchage rapide pour particuliers et professionnels.',
+    coverage: ['Avenue du Bourgmestre', 'Amée', 'Bas-Prés', 'Bord de Meuse']
+  },
+  {
+    name: 'Erpent',
+    postalCode: '5101',
+    delay: '20 - 25 minutes',
+    desc: 'Couverture complète d\'Erpent pour chaufferie, dépannage chaudière et plomberie sanitaire de villas et résidences.',
+    coverage: ['Erpent-Val', 'Chaussée de Marche', 'Quartier Collège', 'Plateau d\'Erpent']
+  },
+  {
+    name: 'Bouge',
+    postalCode: '5004',
+    delay: '20 minutes',
+    desc: 'Déplacement rapide à Bouge, y compris à proximité de l\'Hôpital CHR de Namur et des zones résidentielles.',
+    coverage: ['Sainte-Rita', 'Chaussée de Louvain', 'Sart-Hulet', 'Cité du CHR']
+  },
+  {
+    name: 'Salzinnes',
+    postalCode: '5000',
+    delay: '20 minutes',
+    desc: 'Prise en charge urgente pour fuite de tuyauterie ou problème de canalisation bouchée dans tout Salzinnes.',
+    coverage: ['Val-Saint-Georges', 'Avenue de la Plante', 'Sainte-Elisabeth', 'Place de la Berlière']
+  },
+  {
+    name: 'Saint-Servais',
+    postalCode: '5002',
+    delay: '20 minutes',
+    desc: 'Techniciens disponibles en permanence à Saint-Servais pour le remplacement d\'équipements sanitaires et l\'entretien de chauffage.',
+    coverage: ['Faubourg', 'Bricgniot', 'Papas', 'Avenue des Croix du Feu']
+  },
+  {
+    name: 'Flawinne',
+    postalCode: '5020',
+    delay: '25 minutes',
+    desc: 'Interventions régulières à Flawinne pour assainissement, recherche de fuite d\'eau et débouchage d\'égouts.',
+    coverage: ['Village', 'Quartier Gare', 'Fond de Flawinne']
+  },
+  {
+    name: 'Beez',
+    postalCode: '5000',
+    delay: '25 minutes',
+    desc: 'Dépannage d\'urgence le long du réseau fluvial et sur les hauteurs de Beez. Réponse immédiate au 081 39 48 20.',
+    coverage: ['Château de Beez', 'Moulins', 'Quartier de la Meuse']
+  }
+];
+
+const outerLocations = [
+  { name: 'Gembloux', cp: '5030', delay: '30 min' },
+  { name: 'Andenne', cp: '5300', delay: '30 min' },
+  { name: 'Profondeville', cp: '5170', delay: '25 min' },
+  { name: 'Floreffe', cp: '5150', delay: '25 min' },
+  { name: 'Assesse', cp: '5330', delay: '30 min' },
+  { name: 'Fernelmont', cp: '5380', delay: '30 min' }
+];
+---
+
+<Layout
+  title="Zones d'Intervention Plomberie Namur - Citabat"
+  description="Plombier d'urgence à Namur, Jambes, Erpent, Bouge, Salzinnes, Saint-Servais et toute la province. Intervention garantie sous 30 minutes 24h/24 & 7j/7."
+>
+  <!-- Hero Section -->
+  <section class="locations-hero">
+    <div class="container text-center">
+      <span class="badge badge-cyan">Secteur Namur & Province</span>
+      <h1>Zones d'Intervention Plomberie à Namur</h1>
+      <p class="hero-desc">
+        Grâce à nos véhicules d'intervention équipés et géolocalisés, nous arrivons chez vous en <strong>moins de 30 minutes</strong> à Namur et ses sous-communes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive Map / Radius Showcase -->
+  <section class="section-padding radius-showcase">
+    <div class="container grid-2">
+      <div class="showcase-card">
+        <span class="badge badge-orange">📍 Zone Prioritaire 30 Min</span>
+        <h2>Une présence locale forte à Namur</h2>
+        <p>
+          Contrairement aux centrales de mise en relation nationales, <strong>Citabat est une entreprise ancrée à Namur</strong>. 
+          Nos plombiers connaissent parfaitement le réseau d'eau local, le niveau de calcaire des nappes namuroises et les spécificités des bâtiments anciens comme modernes.
+        </p>
+
+        <div class="guarantee-box">
+          <div class="g-item">
+            <span class="g-icon">⚡</span>
+            <div>
+              <strong>Service Garde 24/7</strong>
+              <p>Permanence assurée jour, nuit, week-end & jours fériés</p>
+            </div>
+          </div>
+          <div class="g-item">
+            <span class="g-icon">🚗</span>
+            <div>
+              <strong>Camions Réparateurs Tout Équipés</strong>
+              <p>Pièces détachées et caméras embarquées dans chaque véhicule</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-mockup-card">
+        <div class="map-header">
+          <span class="map-title">Carte d'Intervention - Province de Namur</span>
+          <span class="live-dot">● En direct</span>
+        </div>
+        <div class="map-visual">
+          <div class="map-pin pin-namur">
+            <span class="pin-pulse"></span>
+            <span class="pin-label">Namur (15 min)</span>
+          </div>
+          <div class="map-pin pin-jambes">
+            <span class="pin-label">Jambes (20 min)</span>
+          </div>
+          <div class="map-pin pin-erpent">
+            <span class="pin-label">Erpent (20 min)</span>
+          </div>
+          <div class="map-radius">
+            <span>Rayon de 25 km couvert H24</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Locations Grid -->
+  <section class="section-padding main-locations-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-cyan">Détail par Commune</span>
+        <h2>Nos Déplacements à Namur & Subdivisions</h2>
+      </div>
+
+      <div class="grid-2">
+        {mainLocations.map((loc) => (
+          <div class="card location-detail-card">
+            <div class="loc-card-header">
+              <div class="loc-title-group">
+                <h3>{loc.name}</h3>
+                <span class="cp-badge">{loc.postalCode}</span>
+              </div>
+              <span class="delay-badge">⏱️ Arrival: {loc.delay}</span>
+            </div>
+
+            <p class="loc-desc">{loc.desc}</p>
+
+            <div class="coverage-tags">
+              <span class="tag-title">Quartiers desservis:</span>
+              {loc.coverage.map((q) => (
+                <span class="q-tag">{q}</span>
+              ))}
+            </div>
+
+            <div class="loc-action">
+              <a href="tel:081394820" class="btn btn-outline btn-sm">
+                Plombier à {loc.name}: 081 39 48 20
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Surrounding Municipalities -->
+  <section class="section-padding outer-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-orange">Grand Namur</span>
+        <h2>Communes Périphériques Desserivies</h2>
+        <p>Nous intervenons également rapidement dans l'ensemble des communes avoisinantes.</p>
+      </div>
+
+      <div class="grid-3">
+        {outerLocations.map((out) => (
+          <div class="card outer-card">
+            <div class="outer-header">
+              <h4>{out.name} ({out.cp})</h4>
+              <span class="outer-delay">{out.delay}</span>
+            </div>
+            <p>Services de dépannage plomberie, fuites et installation de chauffage.</p>
+            <a href="tel:081394820" class="outer-call">
+              📞 Appeler pour {out.name}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <EmergencyBanner />
+</Layout>
+
+<style>
+  .locations-hero {
+    padding: 5rem 0 3rem 0;
+    background: radial-gradient(circle at 50% 0%, #0d2342 0%, var(--bg-dark) 80%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .text-center {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .locations-hero h1 {
+    font-size: 2.8rem;
+    margin: 1rem 0;
+  }
+
+  .hero-desc {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .radius-showcase {
+    background: rgba(15, 28, 48, 0.4);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .showcase-card h2 {
+    font-size: 2.2rem;
+    margin: 1rem 0;
+  }
+
+  .showcase-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .guarantee-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .g-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+  }
+
+  .g-icon {
+    font-size: 1.8rem;
+  }
+
+  .g-item strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .g-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Map Mockup */
+  .map-mockup-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .map-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .live-dot {
+    color: var(--accent-green);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .map-visual {
+    height: 320px;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.15) 0%, rgba(7, 13, 25, 0.9) 70%);
+    border: 1px dashed var(--border-active);
+    border-radius: var(--radius-md);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-pin {
+    position: absolute;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px var(--primary-glow);
+  }
+
+  .pin-namur {
+    top: 40%;
+    left: 45%;
+    background: var(--accent-orange);
+  }
+
+  .pin-jambes {
+    top: 55%;
+    left: 55%;
+  }
+
+  .pin-erpent {
+    top: 65%;
+    left: 70%;
+  }
+
+  .map-radius {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.85rem;
+    color: var(--cyan);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+  }
+
+  /* Location Detail Card */
+  .location-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .loc-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .loc-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .loc-title-group h3 {
+    font-size: 1.4rem;
+  }
+
+  .cp-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .delay-badge {
+    font-size: 0.85rem;
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  .loc-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .coverage-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .tag-title {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-right: 0.3rem;
+  }
+
+  .q-tag {
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: var(--text-main);
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+  }
+
+  .loc-action {
+    margin-top: 0.5rem;
+  }
+
+  /* Outer Locations */
+  .outer-section {
+    background: rgba(15, 28, 48, 0.2);
+  }
+
+  .outer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .outer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .outer-header h4 {
+    font-size: 1.15rem;
+  }
+
+  .outer-delay {
+    color: var(--accent-gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .outer-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .outer-call {
+    color: var(--cyan);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .outer-call:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 992px) {
+    .radius-showcase .grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

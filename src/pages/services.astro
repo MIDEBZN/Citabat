@@ -1,0 +1,414 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EmergencyBanner from '../components/EmergencyBanner.astro';
+
+const serviceCategories = [
+  {
+    id: 'depannage',
+    icon: '⚡',
+    title: 'Dépannage d\'Urgence Plomberie 24/7',
+    badge: 'Intervention 30 min',
+    desc: 'Un tuyau qui a cédé, une inondation imminente ou un chauffe-eau qui fuit abondamment ? Notre équipe d\'urgence intervient 24h/24 et 7j/7 dans toute la région namuroise.',
+    details: [
+      'Colmatage immédiat des fuites d\'eau haute pression',
+      'Coupure de sécurité et sécurisation de l\'installation',
+      'Remplacement d\'urgence de robinets d\'arrêt défectueux',
+      'Réparation de tuyauterie cuivre, PER, PEX et multicouche',
+      'Prise en charge prioritaire les week-ends et jours fériés'
+    ]
+  },
+  {
+    id: 'fuites',
+    icon: '💧',
+    title: 'Recherche & Réparation de Fuites d\'Eau',
+    badge: 'Non Destructif',
+    desc: 'Une infiltration invisible dans un mur ou sous un carrelage peut faire des ravages. Nous localisons la fuite avec précision absolue sans casser inutilement.',
+    details: [
+      'Inspection par caméra endoscopique des canalisations',
+      'Détection thermographique (caméra infrarouge)',
+      'Test à l\'hydrogène tracé et corrélation acoustique',
+      'Rapport technique complet certifié pour votre assurance dégâts des eaux',
+      'Réparation ciblée et remise en état du réseau'
+    ]
+  },
+  {
+    id: 'debouchage',
+    icon: '🚽',
+    title: 'Débouchage Express Canalisation & Égouts',
+    badge: 'Haute Pression',
+    desc: 'Des écoulements lents ou des odeurs nauséabondes ? Nous réalisons un débouchage mécanique ou hydrodynamique haute pression immédiatement efficace.',
+    details: [
+      'Débouchage de WC, lavabos, douches, baignoires et éviers',
+      'Hydrocurage de canalisations principales d\'égouttage',
+      'Inspection vidéo pré et post débouchage avec enregistrement',
+      'Extraction de calcaire, racines et graisses accumulées',
+      'Curage préventif et assainissement complet'
+    ]
+  },
+  {
+    id: 'chauffage',
+    icon: '🔥',
+    title: 'Entretien & Dépannage Chauffage',
+    badge: 'Agréé Région Wallonne',
+    desc: 'Procédez à l\'entretien obligatoire de votre chaudière au gaz ou au mazout pour maximiser votre sécurité et réduire vos factures d\'énergie.',
+    details: [
+      'Entretien légal de chaudière gaz & mazout avec attestation',
+      'Dépannage de circulateurs, thermostats et vannes trois voies',
+      'Désembouage complet du réseau de radiateurs et plancher chauffant',
+      'Installation et remplacement de chaudières à condensation haute performance',
+      'Réglage d\'optimisation de la consommation énergétique'
+    ]
+  },
+  {
+    id: 'salle-de-bain',
+    icon: '🛁',
+    title: 'Rénovation & Création Salle de Bain',
+    badge: 'Clé en Main',
+    desc: 'Transformez votre salle de bain en un espace moderne et relaxant. De la dépose de l\'ancienne faïence à la pose de la douche italienne.',
+    details: [
+      'Installation de douches à l\'italienne sur mesure et baignoires',
+      'Pose de meuble vasque, miroir LED et chauffage sèche-serviette',
+      'Remise à neuf complète de l\'arrivée d\'eau et des évacuations',
+      'Raccordements de plomberie encastrés et étanchéité sous carrelage',
+      'Conseil en design, aménagement et choix des matériaux'
+    ]
+  },
+  {
+    id: 'sanitaire',
+    icon: '🔧',
+    title: 'Remplacement Sanitaire & Adoucisseur',
+    badge: 'Matériel Garanti',
+    desc: 'Améliorez la qualité de votre eau et renouvelez vos équipements sanitaires avec les plus grandes marques (Grohe, Hansgrohe, Geberit).',
+    details: [
+      'Pose de WC suspendus Geberit autoportants',
+      'Remplacement de chauffe-eau électrique et boiler thermodynamique',
+      'Installation d\'adoucisseurs d\'eau contre le calcaire namurois',
+      'Changement de mitigeurs, mélangeurs et colonnes de douche',
+      'Raccordements pour lave-linge et lave-vaisselle'
+    ]
+  }
+];
+
+const pricingTable = [
+  { service: 'Déplacement & Diagnostic initial à Namur', price: 'À partir de 45 €' },
+  { service: 'Dépannage fuite d\'eau standard', price: 'À partir de 89 €' },
+  { service: 'Débouchage mécanique évier / WC', price: 'À partir de 95 €' },
+  { service: 'Recherche de fuite non destructive + rapport', price: 'À partir de 160 €' },
+  { service: 'Entretien chaudière gaz certifié + attestation', price: 'À partir de 135 €' },
+  { service: 'Forfait Urgence Nuit & Week-end (24/7)', price: 'Devis clair annoncé sur place' }
+];
+---
+
+<Layout
+  title="Services de Plomberie & Chauffage à Namur - Citabat"
+  description="Découvrez tous nos services de plomberie à Namur : dépannage d'urgence 24/7, recherche de fuite, débouchage de canalisation, entretien chaudière et rénovation de salle de bain."
+>
+  <!-- Hero Services Header -->
+  <section class="services-hero">
+    <div class="container text-center">
+      <span class="badge badge-cyan">Nos Prestations Générales</span>
+      <h1>Services de Plomberie & Chauffage à Namur</h1>
+      <p class="hero-desc">
+        Que ce soit pour un dépannage en urgence ou un projet complet de rénovation sanitaire, 
+        Citabat vous apporte un savoir-faire d'excellence et une garantie de satisfaction.
+      </p>
+    </div>
+  </section>
+
+  <!-- Detailed Service Sections -->
+  <section class="section-padding">
+    <div class="container service-list-container">
+      {serviceCategories.map((cat, index) => (
+        <div class={`service-detail-card ${index % 2 === 1 ? 'reverse' : ''}`} id={cat.id}>
+          <div class="service-detail-content">
+            <div class="detail-header">
+              <span class="detail-icon">{cat.icon}</span>
+              <span class="badge badge-orange">{cat.badge}</span>
+            </div>
+            <h2>{cat.title}</h2>
+            <p class="service-main-desc">{cat.desc}</p>
+
+            <ul class="detail-checklist">
+              {cat.details.map((item) => (
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="detail-actions">
+              <a href="tel:081394820" class="btn btn-emergency">
+                Demander ce service: 081 39 48 20
+              </a>
+              <a href="/contact" class="btn btn-outline">
+                Devis Personnalisé
+              </a>
+            </div>
+          </div>
+
+          <div class="service-detail-visual">
+            <div class="visual-box">
+              <span class="visual-badge">Garantie Qualité Citabat</span>
+              <div class="visual-graphic">
+                <span class="big-icon">{cat.icon}</span>
+                <span class="graphic-title">{cat.title}</span>
+                <span class="graphic-sub">Intervention certifiée sur Namur</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Pricing Transparency Table -->
+  <section class="section-padding pricing-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-cyan">Transparence Totale</span>
+        <h2>Grille Tarifaire Indicative</h2>
+        <p>Chez Citabat, pas de mauvaise surprise ! Le tarif est toujours validé avec vous avant le début des travaux.</p>
+      </div>
+
+      <div class="pricing-card">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Prestation de Plomberie / Chauffage</th>
+              <th>Tarif Estimatif HTVA</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pricingTable.map((row) => (
+              <tr>
+                <td class="service-name">{row.service}</td>
+                <td class="service-price"><strong>{row.price}</strong></td>
+                <td>
+                  <a href="tel:081394820" class="btn btn-outline btn-sm">
+                    Réserver
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="pricing-note">* Les tarifs définitifs dépendent de la complexité technique et des pièces détachées requises. Devis détaillé remis systématiquement avant intervention.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <EmergencyBanner />
+</Layout>
+
+<style>
+  .services-hero {
+    padding: 5rem 0 3rem 0;
+    background: radial-gradient(circle at 50% 0%, #0d2342 0%, var(--bg-dark) 80%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .text-center {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .services-hero h1 {
+    font-size: 2.8rem;
+    margin: 1rem 0;
+  }
+
+  .hero-desc {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .service-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .service-detail-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    transition: var(--transition);
+  }
+
+  .service-detail-card.reverse {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .service-detail-card.reverse .service-detail-content {
+    order: 2;
+  }
+
+  .service-detail-card.reverse .service-detail-visual {
+    order: 1;
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .detail-icon {
+    font-size: 2.2rem;
+  }
+
+  .service-detail-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .service-main-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+  }
+
+  .detail-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .detail-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+  }
+
+  .detail-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Visual Graphic */
+  .visual-box {
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.15) 0%, rgba(0, 210, 255, 0.05) 100%);
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .visual-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.75rem;
+    color: var(--cyan);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+  }
+
+  .big-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .graphic-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+  }
+
+  .graphic-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  /* Pricing Table */
+  .pricing-section {
+    background: rgba(15, 28, 48, 0.4);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .pricing-table th, .pricing-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .pricing-table th {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--cyan);
+  }
+
+  .service-name {
+    font-size: 0.98rem;
+    color: var(--text-main);
+  }
+
+  .service-price {
+    color: var(--accent-gold);
+    font-size: 1.05rem;
+  }
+
+  .btn-sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .pricing-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 992px) {
+    .service-detail-card, .service-detail-card.reverse {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+    }
+    .service-detail-card.reverse .service-detail-content {
+      order: 1;
+    }
+    .service-detail-card.reverse .service-detail-visual {
+      order: 2;
+    }
+  }
+</style>

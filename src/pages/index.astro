@@ -1,0 +1,796 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EmergencyBanner from '../components/EmergencyBanner.astro';
+
+const services = [
+  {
+    icon: '⚡',
+    title: 'Dépannage d\'Urgence 24/7',
+    desc: 'Fuite d\'eau soudaine, canalisation bouchée ou rupture de tuyau. Intervention d\'urgence garantie en 30 min sur Namur.',
+    link: '/services#depannage'
+  },
+  {
+    icon: '💧',
+    title: 'Recherche & Réparation de Fuite',
+    desc: 'Détection non destructive par caméra thermique et corrélation acoustique. Réparation immédiate scellée sous garantie.',
+    link: '/services#fuites'
+  },
+  {
+    icon: '🚽',
+    title: 'Débouchage Express Canalisation',
+    desc: 'Débouchage haute pression de WC, lavabos, éviers, douches et égouts principaux. Nettoyage complet des réseaux.',
+    link: '/services#debouchage'
+  },
+  {
+    icon: '🔥',
+    title: 'Chauffage & Chaudière',
+    desc: 'Entretien annuel obligatoire, dépannage de panne de chauffage et installation de chaudières gaz & mazout certifiées.',
+    link: '/services#chauffage'
+  },
+  {
+    icon: '🛁',
+    title: 'Rénovation Salle de Bain',
+    desc: 'Transformation clé en main de votre salle de bain : douche italienne, robinetterie design et canalisations neuves.',
+    link: '/services#salle-de-bain'
+  },
+  {
+    icon: '🔧',
+    title: 'Installation & Sanitaires',
+    desc: 'Remplacement de chauffe-eau, adoucisseur d\'eau, robinets, chasse d\'eau et raccordements de cuisine.',
+    link: '/services#sanitaire'
+  }
+];
+
+const features = [
+  {
+    title: 'Arrivée en 30 Minutes',
+    desc: 'Nos plombiers géolocalisés à Namur sont prêts à intervenir à tout moment de la journée ou de la nuit.',
+    icon: '⏱️'
+  },
+  {
+    title: 'Tarifs Transparents & Fixes',
+    desc: 'Devis détaillé et sans surprise établi avant le début de toute intervention. Aucune majoration cachée.',
+    icon: '💶'
+  },
+  {
+    title: 'Agréé Assurances',
+    desc: 'Entreprise certifiée et reconnue par l\'ensemble des compagnies d\'assurances en Belgique pour dégâts des eaux.',
+    icon: '🛡️'
+  },
+  {
+    title: 'Garantie Décennale & Qualité',
+    desc: 'Matériel haut de gamme certifié CE et pièces garanties jusqu\'à 10 ans pour une tranquillité totale.',
+    icon: '🏆'
+  }
+];
+
+const locations = [
+  { name: 'Namur Centre', cp: '5000', delay: '15-20 min' },
+  { name: 'Jambes', cp: '5000', delay: '20 min' },
+  { name: 'Erpent', cp: '5101', delay: '20-25 min' },
+  { name: 'Bouge', cp: '5004', delay: '20 min' },
+  { name: 'Salzinnes', cp: '5000', delay: '20 min' },
+  { name: 'Saint-Servais', cp: '5002', delay: '20 min' },
+  { name: 'Flawinne', cp: '5020', delay: '25 min' },
+  { name: 'Beez', cp: '5000', delay: '25 min' },
+  { name: 'Gembloux', cp: '5030', delay: '30 min' },
+  { name: 'Andenne', cp: '5300', delay: '30 min' }
+];
+
+const testimonials = [
+  {
+    name: 'Marc L.',
+    location: 'Namur Centre (5000)',
+    date: 'Hier',
+    rating: 5,
+    text: 'Fuite d\'eau majeure sous l\'évier de cuisine à 22h. Citabat est arrivé en 25 minutes ! Réparation propre et tarif exactement conforme au devis annoncé par téléphone.'
+  },
+  {
+    name: 'Sophie D.',
+    location: 'Jambes',
+    date: 'Il y a 3 jours',
+    rating: 5,
+    text: 'WC complètement bouché un dimanche matin. Intervention super efficace par le technicien Thomas. Très poli et de précieux conseils pour l\'entretien.'
+  },
+  {
+    name: 'Jean-Pierre M.',
+    location: 'Erpent',
+    date: 'La semaine dernière',
+    rating: 5,
+    text: 'Entretien annuel de notre chaudière au gaz et rénovation de la robinetterie de notre salle de bain. Travail de grande qualité et réactivité exemplaire.'
+  }
+];
+
+const faqs = [
+  {
+    q: 'En combien de temps pouvez-vous intervenir à Namur ?',
+    a: 'En cas d\'urgence (fuite d\'eau importante, canalisation bouchée, panne de chauffage en hiver), un plombier Citabat intervient à votre domicile à Namur ou Jambes en moins de 30 minutes.'
+  },
+  {
+    q: 'Vos devis de plomberie sont-ils gratuits ?',
+    a: 'Oui, tous nos devis sont 100% gratuits et sans aucun engagement. Le technicien analyse votre problème sur place et vous soumet un prix fixe avant d\'entamer les travaux.'
+  },
+  {
+    q: 'Êtes-vous disponibles le week-end et jours fériés ?',
+    a: 'Absolument. Notre service de garde plomberie d\'urgence fonctionne 24 heures sur 24, 7 jours sur 7, y compris les dimanches et jours fériés dans toute la région namuroise.'
+  },
+  {
+    q: 'Comment procéder pour une prise en charge par mon assurance ?',
+    a: 'Citabat fournit un rapport technique détaillé accompagné de photos et d\'une facture conforme aux exigences des compagnies d\'assurance en Belgique pour les sinistres dégâts des eaux.'
+  }
+];
+---
+
+<Layout 
+  title="Plombier Namur - Citabat | Dépannage Plomberie & Chauffage 24/7"
+  description="Entreprise de plomberie et chauffage à Namur. Intervention d'urgence 24/7 en 30 min, fuite d'eau, débouchage canalisation, entretien chaudière. Devis gratuit au 081 39 48 20."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge badge-cyan">
+          <span>🏆 Plombier-Chauffagiste de Référence à Namur</span>
+        </div>
+        
+        <h1>
+          Plomberie & Chauffage à Namur<br />
+          <span class="gradient-text">Dépannage d'Urgence en 30 Min</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Citabat vous garantit une intervention rapide 24h/24 et 7j/7 dans tout le grand Namur. 
+          Débouchage express, fuites d'eau, chaudières en panne et rénovation sanitaire avec tarifs transparents et devis gratuit.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="tel:081394820" class="btn btn-emergency">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Urgence: 081 39 48 20
+          </a>
+          <a href="/contact" class="btn btn-outline">
+            Obtenir un Devis Gratuit
+          </a>
+        </div>
+
+        <div class="hero-trust-badges">
+          <div class="trust-item">
+            <span class="trust-icon">⚡</span>
+            <span>Urgence 24/7</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">💶</span>
+            <span>Devis Transparent</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">🛡️</span>
+            <span>Agréé Assurances</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Form Widget -->
+      <div class="hero-form-card">
+        <div class="form-header">
+          <h3>⚡ Rappel Gratuit en 5 Min</h3>
+          <p>Laissez vos coordonnées pour un dépannage rapide ou un devis</p>
+        </div>
+        <form class="hero-form" id="quickQuoteForm">
+          <div class="form-group">
+            <label for="name">Votre Nom</label>
+            <input type="text" id="name" required placeholder="Ex: Jean Dupont" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Numéro de Téléphone</label>
+            <input type="tel" id="phone" required placeholder="Ex: 0470 12 34 56" />
+          </div>
+          <div class="form-group">
+            <label for="service">Type de Problème</label>
+            <select id="service">
+              <option value="urgence">🚨 Fuite ou Urgence Plomberie</option>
+              <option value="debouchage">🚽 Canalisation Bouchée</option>
+              <option value="chauffage">🔥 Panne de Chaudière / Chauffage</option>
+              <option value="renovation">🛁 Rénovation / Installation</option>
+              <option value="autre">🔧 Autre Demande</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            Être Rappelé Immédiatement
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics -->
+  <section class="stats-section">
+    <div class="container grid-4">
+      <div class="stat-card">
+        <span class="stat-number gradient-text">30 min</span>
+        <span class="stat-label">Délai d'intervention moyen</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number gradient-text">3 500+</span>
+        <span class="stat-label">Dépannages réussis à Namur</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number gradient-text">99.4%</span>
+        <span class="stat-label">Clients 100% Satisfaits</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number gradient-text">24/7</span>
+        <span class="stat-label">Disponibilité garantie</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="section-padding services-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-cyan">Nos Spécialités</span>
+        <h2>Services de Plomberie & Chauffage</h2>
+        <p>Des prestations professionnelles réalisées par des plombiers d'expérience équipés du matériel le plus moderne.</p>
+      </div>
+
+      <div class="grid-3">
+        {services.map((s) => (
+          <div class="card service-card">
+            <div class="service-icon">{s.icon}</div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <a href={s.link} class="service-link">
+              En savoir plus 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section-padding why-section">
+    <div class="container grid-2">
+      <div class="why-content">
+        <span class="badge badge-orange">Confiance & Expertise</span>
+        <h2>Pourquoi faire appel à Citabat Plomberie ?</h2>
+        <p class="lead-text">
+          Basée à Namur, notre équipe intervient chaque jour pour résoudre les problèmes de plomberie les plus complexes avec rigueur et transparence.
+        </p>
+
+        <div class="features-list">
+          {features.map((f) => (
+            <div class="feature-item">
+              <span class="feature-icon">{f.icon}</span>
+              <div>
+                <h4>{f.title}</h4>
+                <p>{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="why-card-box">
+        <div class="glow-box">
+          <span class="glow-tag">💡 Le Saviez-Vous ?</span>
+          <h3>Une fuite d'eau non traitée peut doubler votre facture !</h3>
+          <p>Un simple goutte-à-goutte peut gaspiller plus de 100 litres d'eau par jour. Notre équipement de recherche de fuites par caméra détecte les infiltrations invisibles immédiatement.</p>
+          
+          <div class="call-banner">
+            <div>
+              <span class="call-title">Besoin d'un diagnostic d'urgence ?</span>
+              <span class="call-sub">Appelez directement nos techniciens</span>
+            </div>
+            <a href="tel:081394820" class="btn btn-emergency">
+              081 39 48 20
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Badge Grid -->
+  <section class="section-padding locations-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-cyan">Secteur Namurois</span>
+        <h2>Zones d'Intervention à Namur & Environs</h2>
+        <p>Nous couvrons l'ensemble des communes du grand Namur avec un temps de réponse éclair.</p>
+      </div>
+
+      <div class="grid-4">
+        {locations.map((loc) => (
+          <a href="/locations" class="location-card">
+            <div class="loc-header">
+              <span class="loc-icon">📍</span>
+              <h4>{loc.name}</h4>
+            </div>
+            <span class="loc-cp">Code postal: {loc.cp}</span>
+            <span class="loc-delay">Délai estimé: <strong>{loc.delay}</strong></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Banner Component -->
+  <EmergencyBanner />
+
+  <!-- Testimonials Section -->
+  <section class="section-padding testimonials-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-cyan">Avis Clients Verified</span>
+        <h2>Ce que disent nos clients à Namur</h2>
+        <p>La satisfaction de nos clients est notre meilleure carte de visite.</p>
+      </div>
+
+      <div class="grid-3">
+        {testimonials.map((t) => (
+          <div class="card testimonial-card">
+            <div class="stars">{'★'.repeat(t.rating)}</div>
+            <p class="review-text">"{t.text}"</p>
+            <div class="reviewer-info">
+              <div>
+                <strong>{t.name}</strong>
+                <span class="reviewer-loc">{t.location}</span>
+              </div>
+              <span class="review-date">{t.date}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-padding faq-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="badge badge-orange">Questions Fréquentes</span>
+        <h2>Tout ce que vous devez savoir</h2>
+      </div>
+
+      <div class="faq-accordion">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>{faq.q}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Styles */
+  .hero-section {
+    position: relative;
+    padding: 5rem 0 6rem 0;
+    overflow: hidden;
+  }
+
+  .hero-bg-glow {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 119, 255, 0.25) 0%, rgba(0, 210, 255, 0.08) 45%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3.2rem;
+    margin: 1.2rem 0 1.2rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-badges {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .trust-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Quick Form */
+  .hero-form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-header h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .form-header p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .hero-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .form-group input, .form-group select {
+    background: rgba(7, 13, 25, 0.8);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 1rem;
+    color: #ffffff;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    transition: var(--transition);
+  }
+
+  .form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan-glow);
+  }
+
+  /* Stats Section */
+  .stats-section {
+    padding: 2.5rem 0;
+    background: rgba(15, 28, 48, 0.4);
+    border-y: 1px solid var(--border-light);
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  /* Services Cards */
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--cyan);
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-top: 0.5rem;
+  }
+
+  .service-link:hover {
+    gap: 0.7rem;
+  }
+
+  /* Why Us */
+  .why-content h2 {
+    font-size: 2.4rem;
+    margin: 0.8rem 0 1rem 0;
+  }
+
+  .lead-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    background: rgba(0, 210, 255, 0.1);
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-item h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .feature-item p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  .glow-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .glow-tag {
+    color: var(--accent-gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  .glow-box p {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .call-banner {
+    background: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .call-title {
+    display: block;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  .call-sub {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* Locations Grid */
+  .location-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: var(--transition);
+  }
+
+  .location-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-3px);
+  }
+
+  .loc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .loc-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .loc-cp {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .loc-delay {
+    font-size: 0.85rem;
+    color: var(--cyan);
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stars {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .review-text {
+    color: var(--text-main);
+    font-style: italic;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    line-height: 1.6;
+  }
+
+  .reviewer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+  }
+
+  .reviewer-loc {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--cyan);
+  }
+
+  .review-date {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  /* FAQ Accordion */
+  .faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.5rem;
+    transition: var(--transition);
+  }
+
+  .faq-item[open] {
+    border-color: var(--border-active);
+  }
+
+  .faq-question {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+  .faq-answer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+      font-size: 2.4rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('quickQuoteForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Merci ! Un plombier Citabat va vous rappeler dans les 5 minutes au numéro indiqué.');
+      (form as HTMLFormElement).reset();
+    });
+  }
+</script>
